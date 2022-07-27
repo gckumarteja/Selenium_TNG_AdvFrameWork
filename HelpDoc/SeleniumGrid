@@ -1,0 +1,6 @@
+Configuring A Selenium Hub
+    java -jar selenium-server-4.3.0.jar hub
+
+Configuring A Selenium Hub
+Add browser drivers in the place where selenium server is located and run the below line in the cmd prompt
+    java -jar selenium-server-4.3.0.jar node

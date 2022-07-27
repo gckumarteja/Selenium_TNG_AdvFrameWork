@@ -45,12 +45,13 @@ public class BaseTest {
     }*/
 
     @BeforeMethod
-    @Parameters(value = {"browser"})
-    public synchronized  void initDriver(@Optional("Chrome") String browser, Method test)
+    //@Parameters(value = {"browser"})
+    @Parameters({"browser","runOnMachine"})
+    public synchronized  void initDriver(@Optional("Chrome") String browser, @Optional("Local") String machine, Method test)
     {
         ExtentTestManager.createTest(test.getName()+"_"+browser);
         ExtentTestManager.getTest().assignCategory(browser);
-        BrowserManager.getInstance().setupDriver(browser);
+        BrowserManager.getInstance().setupDriver(browser,machine);
         getDriver().manage().window().maximize();
         getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
