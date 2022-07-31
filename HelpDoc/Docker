@@ -1,0 +1,26 @@
+Install Docker desktop
+https://www.lambdatest.com/blog/run-selenium-tests-in-docker/
+https://hub.docker.com/u/selenium
+
+Selenium Images for docker area available in the below site.
+https://github.com/SeleniumHQ/docker-selenium
+Copy docker copose v3 yaml into the project.
+
+goto the place where yaml file is located and run the cmd promapt
+
+    to run the containters: docker-compose up
+    to stop the containers : docker-compose down
+
+Setup Parallel Execution with Docker Compose
+There are 2 ways to set up parallel execution for Selenium Grid using Docker Compose -
+Updating Docker Compose file:
+Add NODE_MAX_INSTANCES=4
+NODE_MAX_SESSION=4 to the Docker services
+
+Dynamically increasing the nodes:
+using Docker scale command,you can also dynamically add more nodes
+docker-compose up --scale firefox=3 this will total 3 nodes for Firefox
+docker-compose up --scale chrome=4 --scale edge=4
+
+
+Git hub Local host URl: http://localhost:4444/ui
