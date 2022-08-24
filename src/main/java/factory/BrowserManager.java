@@ -35,7 +35,7 @@ public class BrowserManager {
                     cap.setBrowserName("chrome");
                     ChromeOptions coptions = new ChromeOptions();
                     coptions.merge(cap);
-                    DriverManager.getInstance().setDriver(new RemoteWebDriver(new URL("http://192.168.1.7:4444"), cap));
+                    DriverManager.getInstance().setDriver(new RemoteWebDriver(new URL("http://localhost:4444"), cap));
                 } else {
                     WebDriverManager.chromedriver().setup();
                     DriverManager.getInstance().setDriver(new ChromeDriver());
@@ -46,7 +46,7 @@ public class BrowserManager {
                     cap.setBrowserName("MicrosoftEdge");
                     EdgeOptions eoptions = new EdgeOptions();
                     eoptions.merge(cap);
-                    DriverManager.getInstance().setDriver(new RemoteWebDriver(new URL("http://192.168.1.7:4444"), cap));
+                    DriverManager.getInstance().setDriver(new RemoteWebDriver(new URL("http://localhost:4444"), cap));
                 } else {
                     WebDriverManager.edgedriver().setup();
                     DriverManager.getInstance().setDriver(new EdgeDriver());

@@ -1,6 +1,16 @@
-Configuring A Selenium Hub
+Configuring Selenium Hub
     java -jar selenium-server-4.3.0.jar hub
 
-Configuring A Selenium Hub
+ 08:01:33.380 INFO [BoundZmqEventBus.<init>] -
+    XPUB binding to [binding to tcp://*:4442, advertising as tcp://IPAddress:4442],
+    XSUB binding to [binding to tcp://*:4443, advertising as tcp:/d/IPAddress:4443]dd
+
+Configuring Selenium node in remote machine
 Add browser drivers in the place where selenium server is located and run the below line in the cmd prompt
-    java -jar selenium-server-4.3.0.jar node
+    in local where hub and node run in same machine: java -jar selenium-server-4.3.0.jar node
+
+    node in remote machine: java -jar selenium-server-4.3.0.jar node --publish-events tcp://IPAddress:4442 --subscribe-events tcp://IPAddress:4443
+
+    gridconsole: http://localhost:4444/grid/console
+    or http://IPAddress:4444/grid/console
+
