@@ -1,0 +1,18 @@
+https://www.automationtestinghub.com/appium-tutorial/
+https://www.automationtestinghub.com/apppackage-and-appactivity-name/
+
+C:\Users\galic>adb devices
+List of devices attached
+emulator-5554   device
+
+To Get the apppackage and appactivity names
+C:\Users\galic>adb shell
+generic_x86_arm:/ $ dumpsys window windows | grep -E 'mCurrentFocus'
+  mCurrentFocus=Window{ba9fe7c u0 com.android.calculator2/com.android.calculator2.Calculator}
+
+generic_x86_arm:/ $ dumpsys window windows | grep -E 'mFocusedApp'
+  mFocusedApp=AppWindowToken{8d0df38 token=Token{3401f9b ActivityRecord{2ca67aa u0 com.android.calculator2/.Calculator t10}}}
+generic_x86_arm:/ $
+
+Objects can be identified by using: Appium inspector or UIAutomation viewer (Andriod sutudio tool)
+Andriod studio - to get the emulators for the mobiles

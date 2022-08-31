@@ -37,6 +37,31 @@ public class DataManager {
         return obj;
     }
 
+    @DataProvider(name = "data")
+    public static Object[][] getDataFromExcelUsingPOI(Method test) throws FilloException {
+        //Object[][] obj = new Object[1][1];
+        Fillo file= new Fillo();
+        Connection connection=file.getConnection(System.getProperty("user.dir") + "\\src\\data\\TestData.xlsx");
+        Recordset rs= connection.executeQuery("Select * from Sheet1 where Run='Yes' and TestID='"+test.getName()+"' order by Iteration asc");
+        int rowCnt=rs.getCount();
+        int colCnt=rs.getFieldNames().size();
+
+        Object[][] obj= new Object[rowCnt][1];
+        int row=0;
+        while(rs.next())
+        {
+            HashMap<String,String> dataMap=new HashMap<String, String>();
+            for(int col=0;col<colCnt;col++)
+            {
+                dataMap.put(rs.getFieldNames().get(col), rs.getField(col).value());
+            }
+            System.out.println(dataMap);
+            obj[row][0]=dataMap;
+            row=row+1;
+        }
+        return obj;
+    }
+
 
         /* We can use ITestContext to get data based on groups
     @Test(dataProvider="SearchProvider",groups="B")

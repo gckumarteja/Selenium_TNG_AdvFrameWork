@@ -5,6 +5,7 @@ import factory.BaseTest;
 import factory.DataManager;
 import factory.ExtentTestManager;
 //import factory.baseTest_NormalDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.amazonCustServ;
 import pages.Fashion;
@@ -61,7 +62,9 @@ public class amazonTests extends BaseTest {
         amazonCustServ amazon = new amazonCustServ(getDriver(), log);
         amazonPages amazonMain = new amazonPages(getDriver(), log);
         amazonMain.openAmazon("https://www.amazon.in/");
+        Assert.assertTrue(false);
         amazon.navigateCustomerService();
+
     }
 
     @Test

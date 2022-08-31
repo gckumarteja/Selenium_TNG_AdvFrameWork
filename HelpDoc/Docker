@@ -4,10 +4,11 @@ https://hub.docker.com/u/selenium
 
 Selenium Images for docker area available in the below site.
 https://github.com/SeleniumHQ/docker-selenium
+
+
 Copy docker copose v3 yaml into the project.
 
 goto the place where yaml file is located and run the cmd promapt
-
     to run the containters: docker-compose up
     to stop the containers : docker-compose down
 
@@ -24,3 +25,8 @@ docker-compose up --scale chrome=4 --scale edge=4
 
 
 Git hub Local host URl: http://localhost:4444/ui
+
+Step 1
+    Pull the required images
+    docker pull selenium/hub
+    docker pull selenium/node-chrome
